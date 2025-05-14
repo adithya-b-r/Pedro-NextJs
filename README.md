@@ -1,45 +1,79 @@
-Folder Name should consists of all 'Lowercase Letters'.
+# Next.js Beginner Guide: Setup, Routing, and Components
 
+---
+
+### Folder Naming Convention
+
+* Folder names should consist of **all lowercase letters**.
+
+---
+
+### Creating a New Project
+
+```bash
 npx create-next-app .
+```
 
-√ Would you like to use TypeScript? ... No / Yes✅
-√ Would you like to use ESLint? ... No / Yes✅
-√ Would you like to use Tailwind CSS? ... No / Yes✅
-√ Would you like your code inside a `src/` directory? ... No✅ / Yes
-√ Would you like to use App Router? (recommended) ... No / Yes✅
-√ Would you like to use Turbopack for `next dev`? ... No / Yes✅
-√ Would you like to customize the import alias (`@/*` by default)? ... No✅ / Yes
+You will be prompted with the following options:
 
-Creating Routes & Navigation:
+* √ Would you like to use TypeScript? ... No / Yes ✅
+* √ Would you like to use ESLint? ... No / Yes ✅
+* √ Would you like to use Tailwind CSS? ... No / Yes ✅
+* √ Would you like your code inside a `src/` directory? ... No ✅ / Yes
+* √ Would you like to use the App Router? (recommended) ... No / Yes ✅
+* √ Would you like to use Turbopack for `next dev`? ... No / Yes ✅
+* √ Would you like to customize the import alias (`@/*` by default)? ... No ✅ / Yes
 
-To create a Router, just create a folder within 'app' folder. 
-Eg: About folder, within it create a page.tsx folder.
-When user Access localhost:3000/About. The content of page.tsx will be displayed.
+---
 
-This is being rendered by {children} in 'layout.tsx'
+### Creating Routes & Navigation
 
-<Link> tag is used for Navigating.
--Its similar as <a> Tags.
+* To create a route, simply create a folder inside the `app` directory.
+  **Example:** Create a folder named `about`, and inside it, create a `page.tsx` file.
+  When a user accesses `localhost:3000/about`, the content of `page.tsx` will be displayed.
 
-Working with Images:
-- <Image> tag is being used for using Images in NextJS
-- It optimize the images based of Resolution of Device and Lazy Loading.
-- For usage of external images, we need to config hostname in 'next.config.ts'
+* This content is rendered through the `{children}` prop in `layout.tsx`.
 
-Server and Client Components:
-- All the components in NextJS are server components
-- To specify a component as Client component we add "use client"; tag
-- This will turn the component into client component.
+* Use the `<Link>` tag for navigation (similar to the standard `<a>` tag).
 
-- Server components are rendered in Server and HTML file is sent to Browser.
-- Event an onClick events are also not executed in Server side, and throw an error.
-- To use Client Components in Server Component, We need to created seperate component,
-- Eg: To add button onClick event, I create a Button.tsx and add "use client"; at top
-- Then import it in server component. By this way we can combine both Server & Client Component.
+---
 
-Dynamic Routes and Loading States:
-- We can use [userId] as folder name to make it dynamic route.
-- When user access page with Users/1, It will trigger Dynamic Page within Users.
+### Working with Images
 
-- One can create a Loading page, just by adding a file 'loading.tsx' in specified folder [API requests].
-- For error handling, we can use 'error.tsx' file and within it, we can add the messsage that need to be displayed.
+* Use the `<Image>` component to add images in Next.js.
+* It optimizes images based on the device resolution and supports lazy loading by default.
+* To use external images, configure the allowed hostnames in `next.config.ts`.
+
+---
+
+### Server and Client Components
+
+* By default, all components in Next.js are **server components**.
+* To declare a component as a **client component**, add `"use client";` at the top of the file.
+
+**How it works:**
+
+* Server components are rendered on the server, and the resulting HTML is sent to the browser.
+* Browser-only features like `onClick` events are not supported in server components and will throw errors.
+
+**Combining server and client components:**
+
+* To use browser interactions (e.g., button clicks), create a separate component (e.g., `Button.tsx`) and add `"use client";` at the top.
+* Then import this client component into your server component to combine both.
+
+---
+
+### Dynamic Routes & Loading States
+
+* To create dynamic routes, use square brackets in folder names.
+  **Example:** `[userId]` for a dynamic user route.
+
+* When a user accesses `/users/1`, the dynamic page under `/users/[userId]/page.tsx` will be rendered.
+
+**Loading States:**
+
+* Add a `loading.tsx` file inside a specific route folder to show a loading indicator during API calls or suspense.
+
+**Error Handling:**
+
+* Add an `error.tsx` file in the desired route folder to display custom error messages.
