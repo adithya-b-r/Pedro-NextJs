@@ -77,3 +77,9 @@ You will be prompted with the following options:
 **Error Handling:**
 
 * Add an `error.tsx` file in the desired route folder to display custom error messages.
+
+### Example: Layout for a Specific Route
+
+* You can define a layout that applies only to a specific route by adding a `layout.tsx` file inside that route’s folder (e.g., `users`).
+* This layout will wrap all pages under that route and can include common UI elements like headers, sidebars, or footers specific to that section.
+* For example, the `users/layout.tsx` file will render a consistent layout across all `/users` sub-routes.
