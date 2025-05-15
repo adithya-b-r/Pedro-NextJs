@@ -83,3 +83,15 @@ You will be prompted with the following options:
 * You can define a layout that applies only to a specific route by adding a `layout.tsx` file inside that route’s folder (e.g., `users`).
 * This layout will wrap all pages under that route and can include common UI elements like headers, sidebars, or footers specific to that section.
 * For example, the `users/layout.tsx` file will render a consistent layout across all `/users` sub-routes.
+
+### API Routes in Next.js (App Router)
+
+* In the **App Router**, API routes are created using server functions like `GET`, `POST`, etc., inside a `route.ts` file.
+* These files should be placed under the `app/api/` directory.
+  For example: `app/api/hello/route.ts` will be available at `localhost:3000/api/hello`.
+
+**How it works:**
+
+* The `GET` function handles GET requests and returns a JSON response.
+* The `POST` function handles POST requests. It reads data from the request body and returns a customized JSON response.
+* Use `NextResponse.json()` to return JSON-formatted responses.
